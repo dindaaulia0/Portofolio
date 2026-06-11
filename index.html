@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>GesRide — UI/UX Portfolio · Dinda Aulia</title>
+<link rel="icon" type="image/png" href="logo_1.png">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* ── Creator Photo Override ── */
+.creator-avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+  width: 108px;
+  height: 108px;
+}
+
+/* Spinning gradient ring (same as .cav::after) */
+.creator-avatar-wrap::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(135deg, #22d3ee, #818cf8, #a78bfa);
+  border-radius: 50%;
+  z-index: 0;
+  animation: avatarSpin 6s linear infinite;
+}
+
+.creator-photo {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 50px rgba(34,211,238,0.28);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.creator-wrap:hover .creator-photo {
+  transform: scale(1.08);
+  box-shadow: 0 0 80px rgba(34,211,238,0.4);
+}
+
+/* Fallback avatar — hidden by default, shown if foto.jpeg missing */
+.cav-fallback {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #22d3ee, #818cf8, #a78bfa);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #06060f;
+  box-shadow: 0 0 50px rgba(34,211,238,0.28);
+  position: relative;
+  z-index: 1;
+}
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<!-- ══════════ CUSTOM CURSOR ══════════ -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ══════════ FLOATING ORBS ══════════ -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- ══════════ BACKGROUND ══════════ -->
+<div class="bg-mesh"></div>
+<div class="bg-grid"></div>
+<canvas id="particle-canvas"></canvas>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<nav id="nav">
+  <a href="#home" class="nav-brand">
+    <img src="logo_1.png" alt="GesRide Logo" class="nav-logo">
+    <img src="nama.png" alt="GesRide" class="nav-wordmark-img">
+  </a>
+  <ul class="nav-menu">
+    <li><a href="#home" class="on">Beranda</a></li>
+    <li><a href="#prototype">Prototype</a></li>
+    <li><a href="#empathize">Empathize</a></li>
+    <li><a href="#define">Define</a></li>
+    <li><a href="#ideate">Ideate</a></li>
+    <li><a href="#test">Test</a></li>
+    <li><a href="#creator">Creator</a></li>
+  </ul>
+  <a href="#prototype" class="nav-pill">✦ Lihat Prototype</a>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section id="home">
+  <div class="hero-ring"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="tag"><div class="tag-dot"></div> UI/UX Portfolio &nbsp;·&nbsp; Tugas UAS 2026</div>
+      <h1 class="htitle">
+        <span class="ht1">Ges</span>
+        <span class="ht2">Ride.</span>
+      </h1>
+      <p class="hsub">Aplikasi transportasi modern — pesan perjalanan &amp; makanan dalam satu platform yang cepat, intuitif, dan menyenangkan.</p>
+      <div class="hbtns">
+        <a href="#prototype" class="btn-g">✦ Lihat Prototype</a>
+        <a href="#ideate" class="btn-o">Lihat Ideate →</a>
+      </div>
+      <div class="chips">
+        <div class="chip">🚗 Ride Hailing</div>
+        <div class="chip">🍔 Food Delivery</div>
+        <div class="chip">📍 Real-time Tracking</div>
+        <div class="chip">⚡ Super Cepat</div>
+        <div class="chip">🔐 Aman &amp; Terpercaya</div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-logo-orb">
+        <div class="hlo-ring hlo-r1"></div>
+        <div class="hlo-ring hlo-r2"></div>
+        <div class="hlo-ring hlo-r3"></div>
+        <div class="hlo-glow"></div>
+        <img src="logo_1.png" alt="GesRide" class="hero-logo-img">
+        <img src="nama.png" alt="GesRide wordmark" class="hero-wordmark-float">
+      </div>
+    </div>
+  </div>
+  <div class="scroll-arrow"><div class="arr">↓</div>Scroll</div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ══════════ PROTOTYPE ══════════ -->
+<section id="prototype" class="section">
+  <div class="wr">
+    <div class="rv">
+      <div class="eyebrow">Final Result</div>
+      <h2 class="stitle">Prototype Figma</h2>
+      <p class="sdesc">Prototype interaktif aplikasi GesRide — rasakan langsung alur pemesanan ride &amp; food delivery.</p>
+    </div>
+    <div class="fig rv">
+      <iframe src="https://embed.figma.com/proto/3fQxMg4JeUQiYQdiraA5bG/Untitled?node-id=0-1&p=f&scaling=scale-down&content-scaling=fixed&embed-host=share" height="640" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ══════════ EMPATHIZE ══════════ -->
+<section id="empathize" class="section">
+  <div class="wr">
+    <div class="rv">
+      <div class="eyebrow">Stage 01</div>
+      <h2 class="stitle">Empathize</h2>
+      <p class="sdesc">Memahami kebutuhan, kebiasaan, dan pain point pengguna layanan transportasi dan food delivery.</p>
+    </div>
+    <div class="rv" style="margin-bottom:2.5rem">
+      <p class="fig-cap">Insight wawancara</p>
+      <div class="fig">
+        <iframe src="https://embed.figma.com/design/3fQxMg4JeUQiYQdiraA5bG/UI-UX-UAS?node-id=174-10201&embed-host=share" height="480" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="g3 rv">
+      <div class="gc d1">
+        <div class="gc-icon">🎯</div>
+        <h3>User Interview</h3>
+        <p>Wawancara mendalam dengan pengguna aktif ojek online dan food delivery untuk menggali pain point nyata.</p>
+      </div>
+      <div class="gc d2">
+        <div class="gc-icon">📊</div>
+        <h3>Survey &amp; Kuesioner</h3>
+        <p>Data kuantitatif dari berbagai segmen terkait kebiasaan penggunaan aplikasi transportasi sehari-hari.</p>
+      </div>
+      <div class="gc d3">
+        <div class="gc-icon">🔍</div>
+        <h3>Observasi Langsung</h3>
+        <p>Mengamati perilaku nyata pengguna saat memesan ojek &amp; makanan untuk menemukan hambatan tersembunyi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ══════════ DEFINE ══════════ -->
+<section id="define" class="section">
+  <div class="wr">
+    <div class="rv">
+      <div class="eyebrow">Stage 02</div>
+      <h2 class="stitle">Define</h2>
+      <p class="sdesc">Merumuskan masalah utama dan peluang solusi berdasarkan temuan dari tahap empathize.</p>
+    </div>
+    <div class="hbox rv">
+      <div class="lbl">Problem Statement</div>
+      <p>Pengguna membutuhkan aplikasi transportasi dan food delivery yang mudah digunakan, memiliki alur pemesanan yang cepat dan jelas, tampilan intuitif, serta mampu mengintegrasikan layanan perjalanan dan makanan dalam satu platform yang efisien dan terpercaya langsung dari smartphone.</p>
+    </div>
+
+    <div class="rv" style="margin-bottom:2.5rem">
+      <p style="font-family:'Manrope',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.15em;color:var(--cyan);margin-bottom:1.25rem">How Might We</p>
+      <div class="hmw-qa-list">
+        <div class="hmw-qa-item rv d1">
+          <div class="hmw-q">
+            <span class="hmw-tag">HMW 01</span>
+            <p>Bagaimana meningkatkan keamanan perjalanan dan mencegah perilaku berkendara yang tidak aman?</p>
+          </div>
+          <div class="hmw-a">
+            <span class="hmw-ans-tag">Jawaban</span>
+            <p>Fitur darurat satu tekan, live trip, rekam otomatis, dan notifikasi keselamatan.</p>
+          </div>
+        </div>
+        <div class="hmw-qa-item rv d2">
+          <div class="hmw-q">
+            <span class="hmw-tag">HMW 02</span>
+            <p>Bagaimana mempercepat ketersediaan driver dan mengurangi pembatalan pesanan?.</p>
+          </div>
+          <div class="hmw-a">
+            <span class="hmw-ans-tag">Jawaban</span>
+            <p>Fitur penjadwalan, mode prioritas, batas pembatalan driver, dan driver cadangan otomatis.</p>
+          </div>
+        </div>
+        <div class="hmw-qa-item rv d3">
+          <div class="hmw-q">
+            <span class="hmw-tag">HMW 03</span>
+            <p>Bagaimana meningkatkan transparansi tarif dan akurasi titik jemput?.</p>
+          </div>
+          <div class="hmw-a">
+            <span class="hmw-ans-tag">Jawaban</span>
+            <p>Rincian tarif (Price Breakdown) serta Drag & Drop Pin dengan foto lokasi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="g2 rv" style="margin-bottom:2.5rem">
+      <div>
+        <p class="fig-cap">HMW</p>
+        <div class="fig">
+          <iframe src="https://embed.figma.com/design/3fQxMg4JeUQiYQdiraA5bG/UI-UX-UAS?node-id=1314-206&embed-host=share" height="300" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <div>
+        <p class="fig-cap">Prioritas Masalah</p>
+        <div class="fig">
+          <iframe src="https://embed.figma.com/design/3fQxMg4JeUQiYQdiraA5bG/UI-UX-UAS?node-id=174-10203&embed-host=share" height="300" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="gc rv" style="border-left:3px solid var(--cyan)">
+      <h3 style="margin-bottom:.65rem">Tools &amp; Scope</h3>
+      <p>Project ini dikerjakan menggunakan <strong style="color:var(--cyan)">Figma</strong> dalam timeline 3 minggu — mencakup riset pengguna, empathize, define, ideate, user flow, wireframe, UI kit, high fidelity, prototype interaktif, dan portofolio UAS.</p>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ══════════ IDEATE ══════════ -->
+<section id="ideate" class="section">
+  <div class="wr">
+    <div class="rv">
+      <div class="eyebrow">Stage 03</div>
+      <h2 class="stitle">Ideate</h2>
+      <p class="sdesc">Eksplorasi ide, wireframe, user flow, dan design system aplikasi GesRide.</p>
+    </div>
+
+    <p class="section-label rv">Crazy 8 &amp; Brainstorming</p>
+    <div class="fig rv" style="margin-bottom:3rem">
+      <iframe src="https://embed.figma.com/design/3fQxMg4JeUQiYQdiraA5bG/UI-UX-UAS?node-id=1446-280&embed-host=share" height="360" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <p class="section-label rv">Low Fidelity &amp; User Flow</p>
+    <div class="g3 rv" style="margin-bottom:3rem">
+      <div>
+        <p class="fig-cap">Login/Registrasi </p>
+        <div class="fig">
+          <iframe src="https://embed.figma.com/design/3fQxMg4JeUQiYQdiraA5bG/UI-UX-UAS?node-id=171-6578&embed-host=share" height="300" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <div>
+        <p class="fig-cap">Pemesanan Layanan Kendaraan</p>
+        <div class="fig">
+          <iframe src="https://embed.figma.com/design/3fQxMg4JeUQiYQdiraA5bG/UI-UX-UAS?node-id=171-6854&embed-host=share" height="300" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <div>
+        <p class="fig-cap">Pemesanan Layanan Makanan</p>
+        <div class="fig">
+          <iframe src="https://embed.figma.com/design/3fQxMg4JeUQiYQdiraA5bG/UI-UX-UAS?node-id=171-8762&embed-host=share" height="300" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-label rv">High Fidelity</p>
+    <div class="g3 rv" style="margin-bottom:3rem">
+      <div>
+        <p class="fig-cap">Login &amp; Registrasi</p>
+        <div class="fig">
+          <iframe src="https://embed.figma.com/design/3fQxMg4JeUQiYQdiraA5bG/UI-UX-UAS?node-id=171-1762&embed-host=share" height="340" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <div>
+        <p class="fig-cap">Pemesanan Layanan Kendaraan</p>
+        <div class="fig">
+          <iframe src="https://embed.figma.com/design/3fQxMg4JeUQiYQdiraA5bG/UI-UX-UAS?node-id=171-3019&embed-host=share" height="340" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <div>
+        <p class="fig-cap">Pemesanan Layanan Makanan</p>
+        <div class="fig">
+          <iframe src="https://embed.figma.com/design/3fQxMg4JeUQiYQdiraA5bG/UI-UX-UAS?node-id=171-4533&embed-host=share" height="340" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-label rv">UI Kit &amp; Design System</p>
+    <div class="fig rv">
+      <iframe src="https://embed.figma.com/design/3fQxMg4JeUQiYQdiraA5bG/UI-UX-UAS?node-id=1446-920&embed-host=share" height="360" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ══════════ TEST ══════════ -->
+<section id="test" class="section">
+  <div class="wr">
+    <div class="rv">
+      <div class="eyebrow">Stage 04</div>
+      <h2 class="stitle">Test</h2>
+      <p class="sdesc">Validasi prototype GesRide — memastikan alur ride dan food delivery terasa cepat, jelas, dan menyenangkan.</p>
+    </div>
+    <div class="hbox rv" style="border-left-color:var(--indigo)">
+      <div class="lbl" style="color:var(--indigo)">Task</div>
+      <p>"Anda ingin memesan ojek ke destinasi tertentu, lalu melanjutkan dengan memesan makanan melalui fitur food delivery pada prototype GesRide."</p>
+    </div>
+
+    <div class="tbl-wrap rv" style="margin-bottom:2rem">
+      <table class="tbl">
+        <thead><tr><th>Task</th><th>Status</th><th>Catatan</th></tr></thead>
+        <tbody>
+          <tr><td>Membuka aplikasi &amp; memahami beranda</td><td><span class="badge">✓ Berhasil</span></td><td>Tampilan home jelas dan informatif</td></tr>
+          <tr><td>Memilih layanan perjalanan (Ride)</td><td><span class="badge">✓ Berhasil</span></td><td>Ikon layanan mudah dikenali</td></tr>
+          <tr><td>Menentukan titik penjemputan &amp; tujuan</td><td><span class="badge">✓ Berhasil</span></td><td>Input lokasi responsif</td></tr>
+          <tr><td>Memilih layanan food delivery</td><td><span class="badge">✓ Berhasil</span></td><td>Navigasi antar layanan lancar</td></tr>
+          <tr><td>Menyelesaikan proses pemesanan</td><td><span class="badge">✓ Berhasil</span></td><td>Alur checkout perlu disederhanakan</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="section-label rv">Dokumentasi Testing</p>
+    <div class="g3 rv" style="margin-bottom:2rem">
+      <div class="test-doc-card">
+        <div class="test-doc-img-wrap">
+          <img src="dokumentasi_2.jpeg" alt="Dokumentasi Testing 1" class="test-doc-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="test-doc-placeholder"><span class="tdp-icon">📸</span></div>
+        </div>
+        <p class="test-doc-cap">Foto Dokumentasi 1</p>
+      </div>
+      <div class="test-doc-card">
+        <div class="test-doc-img-wrap">
+          <img src="dokumentasi_1.jpeg" alt="Dokumentasi Testing 2" class="test-doc-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="test-doc-placeholder"><span class="tdp-icon">📸</span></div>
+        </div>
+        <p class="test-doc-cap">Foto Dokumentasi 2</p>
+      </div>
+      <div class="test-doc-card">
+        <div class="test-doc-img-wrap">
+          <img src="dokumentasi_3.jpeg" alt="Dokumentasi Testing 3" class="test-doc-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="test-doc-placeholder"><span class="tdp-icon">📸</span></div>
+        </div>
+        <p class="test-doc-cap">Foto Dokumentasi 3</p>
+      </div>
+    </div>
+
+    <div class="g2 rv" style="margin-bottom:1.25rem">
+      <div class="gc">
+        <div class="gc-icon">💬</div>
+        <h3>Metode Testing</h3>
+        <p><strong style="color:var(--cyan)">Qualitative Testing</strong> — task-based testing + observasi singkat menggunakan prototype Figma GesRide bersama pengguna nyata.</p>
+      </div>
+      <div class="gc">
+        <div class="gc-icon">📝</div>
+        <h3>Feedback Utama</h3>
+        <p>Tampilan bersih dan navigasi antara ride &amp; food mudah diikuti. Checkout disarankan lebih ringkas agar alur tidak terhenti di tengah.</p>
+      </div>
+    </div>
+    <div class="g2 rv">
+      <div class="gc">
+        <p style="font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--text-light);margin-bottom:.55rem">Before</p>
+        <p style="font-size:.9rem;line-height:1.7;color:var(--text-secondary)">Alur pemesanan terasa cukup panjang. Estimasi tarif tidak langsung terlihat di layar pertama.</p>
+      </div>
+      <div class="gc" style="border-color:rgba(14,165,233,.2)">
+        <p style="font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--cyan);margin-bottom:.55rem">After</p>
+        <p style="font-size:.9rem;line-height:1.7">Estimasi tarif &amp; tombol konfirmasi ditonjolkan di area utama — proses pesan jadi lebih cepat dan ringkas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ══════════ TIMELINE ══════════ -->
+<section class="section">
+  <div class="wr">
+    <div class="rv">
+      <div class="eyebrow">Project Plan</div>
+      <h2 class="stitle">Timeline 3 Minggu</h2>
+      <p class="sdesc">Proses desain GesRide dari riset awal hingga finalisasi portofolio UAS.</p>
+    </div>
+    <div class="tl rv">
+      <div class="tlc d1">
+        <div class="tln">01</div>
+        <h3>Minggu 1</h3>
+        <p>Riset pengguna, konsep ride + food, user flow, dan menyusun struktur halaman utama.</p>
+      </div>
+      <div class="tlc d2">
+        <div class="tln">02</div>
+        <h3>Minggu 2</h3>
+        <p>Wireframe lo-fi, UI kit, color system, typography, komponen kartu, dan navigasi.</p>
+      </div>
+      <div class="tlc d3">
+        <div class="tln">03</div>
+        <h3>Minggu 3</h3>
+        <p>High fidelity, prototype interaktif, user testing, dan finalisasi portofolio UAS.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ══════════ CREATOR ══════════ -->
+<section id="creator" class="section">
+  <div class="wr">
+    <div class="rv">
+      <div class="eyebrow">About</div>
+      <h2 class="stitle">Creator Profile</h2>
+    </div>
+    <div class="creator-wrap rv">
+
+      <!-- Avatar: foto profil + fallback DA -->
+      <div class="creator-avatar-wrap">
+        <img
+          src="foto.jpeg"
+          alt="Dinda Aulia"
+          class="creator-photo"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+        >
+        <div class="cav-fallback">DA</div>
+      </div>
+
+      <div class="creator-info">
+        <h3>Dinda Aulia</h3>
+        <span class="crole">UI/UX Designer</span>
+        <p>Mahasiswi yang passionate di bidang desain antarmuka dan pengalaman pengguna. GesRide adalah project UAS yang menggabungkan design thinking, riset pengguna, dan prototype interaktif untuk menciptakan aplikasi transportasi yang modern dan intuitif.</p>
+        <div class="soc">
+          <a href="https://www.instagram.com/dind4li" class="sbtn" target="_blank" rel="noopener noreferrer">
+            📸 Instagram
+          </a>
+          <a href="https://www.linkedin.com/in/dinda-aulia-b55a7a380" class="sbtn" target="_blank" rel="noopener noreferrer">
+            💼 LinkedIn
+          </a>
+          <a href="https://github.com/dindaaulia0" class="sbtn" target="_blank" rel="noopener noreferrer">
+            🐙 GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">
+    <img src="logo_1.png" alt="GesRide" class="footer-logo">
+    <span>© 2026 <b>GesRide</b> Portfolio</span>
+  </div>
+  <span>Dibuat oleh <b>Dinda Aulia - 253307011 </b> · UI/UX UAS Project</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
